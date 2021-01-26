@@ -19,6 +19,7 @@
         </tbody>
       </table>
       <div class="list-group">
+        <h4>Reviews</h4>
         <% @restaurant.reviews.each do |review| %>
           <li class="list-group-item">
             <small>
@@ -36,11 +37,7 @@
           </li>
         <% end %>
       </div>
-      <%= simple_form_for [@restaurant, @review] do |f| %>
-        <%= f.input :rating, collection: 0..5 %>
-        <%= f.input :content%>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %> <hr>
       <%= link_to "See all restaurants", restaurants_path %>
     </div>
   </div>
